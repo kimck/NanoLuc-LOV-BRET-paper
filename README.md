@@ -6,5 +6,7 @@ Kim, C.K., Cho, K.F., Kim, M.W., & Ting, A.Y. Luciferase-LOV BRET enables versat
 
 # Required software
 MATLAB
+
 Cellsegm (https://github.com/ehodneland/cellsegm)
+
 Fiji/ImageJ

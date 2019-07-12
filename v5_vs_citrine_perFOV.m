@@ -25,10 +25,11 @@ close all
 % load the image tif files data
 filepath='C:/Users/Tina Kim/Dropbox/PAPERS/Nanoluc lov/Data/';
 filefolder='20180909_spark2_hatag/';
-filename_v5='15minlight_iso_v5.tif'; 
+filename_base='15minlight_iso'; 
+filename_v5=strcat(filename_base,'_v5.tif'); 
 imsegm=imread(strcat(filepath,filefolder,filename_v5));
 imsegm=double(imsegm);
-filename_cit='15minlight_iso_cit.tif';
+filename_cit=strcat(filename_base,'_cit.tif');
 imsegm_cit=imread(strcat(filepath,filefolder,filename_cit));
 imsegm_cit=double(imsegm_cit);
 
@@ -72,8 +73,8 @@ for a=1:num_cells
 end
 
 % save data 
-savename=strrep(filename,'.tif','.mat');
-save(strcat(filepath,filefolder,'results/',savename),'num','meanfluo','meanfluo_cit','meanratio');
+savename=strcat(filename_base,'.mat');
+save(strcat(filepath,filefolder,'results/',savename),'num_cells','meanfluo','meanfluo_cit','meanratio');
 
 %% Calculate the average ratios per FOV
 
@@ -92,5 +93,5 @@ for z=1 % number of rows in combined image
     end
 end
 
-savename=strrep(filename,'.tif','_FOV.mat');
+savename=strcat(filename_base,'_FOV.mat');
 save(strcat(filepath,filefolder,'results/',savename),'FOV_ratios');
